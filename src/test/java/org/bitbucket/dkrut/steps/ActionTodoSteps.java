@@ -1,5 +1,6 @@
 package org.bitbucket.dkrut.steps;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -14,28 +15,28 @@ import static com.codeborne.selenide.Condition.selected;
 public class ActionTodoSteps {
     private TodoMVC todo = new TodoMVC();
 
-    @Given("^user create a new todo$")
-    public void user_create_a_new_todo() {
-        todo.newTodo(1);
+    @Given("^user create (\\d+) new todo$")
+    public void user_create_a_new_todo(int count) {
+        todo.newTodo(count);
     }
 
-    @When("^user click checkbox$")
-    public void user_click_checkbox() {
-        todo.clickCheckboxTodo(1);
+    @When("^user click checkbox at (\\d+) todo$")
+    public void user_click_checkbox(int count) {
+        todo.clickCheckboxTodo(count);
     }
 
-    @When("^click checkbox else$")
-    public void click_checkbox_else() {
-        todo.clickCheckboxTodo(1);
+    @When("^click checkbox at (\\d+) todo else$")
+    public void click_checkbox_else(int count) {
+        todo.clickCheckboxTodo(count);
     }
 
-    @Then("^checkbox is selected$")
-    public void checkbox_is_selected() {
-        todo.checkboxTodo(1).shouldBe(selected);
+    @Then("^checkbox at (\\d+) todo is selected$")
+    public void checkbox_is_selected(int count) {
+        todo.checkboxTodo(count).shouldBe(selected);
     }
 
-    @Then("^checkbox is unselected$")
-    public void checkbox_is_unselected() {
-        todo.checkboxTodo(1).shouldNotBe(selected);
+    @Then("^checkbox at (\\d+) todo is unselected$")
+    public void checkbox_is_unselected(int count) {
+        todo.checkboxTodo(count).shouldNotBe(selected);
     }
 }

@@ -14,7 +14,7 @@ public class ClearCompleted {
     private TodoMVC todo = new TodoMVC();
 
     @Then("^button clear completed is not visible$")
-    public void butto_clear_completed_unvisible(){
+    public void button_clear_completed_unvisible(){
         todo.buttonClearCompleted.shouldNot(visible);
     }
 

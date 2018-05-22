@@ -23,3 +23,14 @@ Scenario: Deleting empty todo
     Given user create 2 new todo
     When user edit 1 todo by enter adding .
     Then list todo have 1 todo
+
+Scenario: Hide controls
+    Given user create 1 new todo
+    When user make double click at 1 line todo
+    Then checkbox at 1 todo is not visible
+    And delete button at 1 line todo is not visible
+
+Scenario: Delete todo
+    Given user create 2 new todo
+    When delete todo number 2
+    Then list todo have 1 todo
